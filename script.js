@@ -18,9 +18,14 @@ const slides = [
     }
 ]
 
-arrow - left.addEventlistener('click', function () {
-    etape++;
-    if (etape => nbr_img) {
-        etape = 0;
-    }
+const btnPrev = document.getElementById('btn-prev')
+const btnNext = document.getElementById('btn-next')
+
+btnPrev.addEventListener('click', () => {
+    console.log('click btn précédent')
 })
+
+btnNext.addEventListener('click', () => {
+    console.log('click btn suivant')
+})
+
