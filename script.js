@@ -28,4 +28,8 @@ btnPrev.addEventListener('click', () => {
 btnNext.addEventListener('click', () => {
     console.log('click btn suivant')
 })
+const dots = document.querySelector('.dots')
+const dot = document.createElement('span')
+dot.setAttribute('class', 'dot')
+dots.appendChild(dot)
 
