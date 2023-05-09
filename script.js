@@ -18,3 +18,9 @@ const slides = [
     }
 ]
 
+arrow - left.addEventlistener('click', function () {
+    etape++;
+    if (etape => nbr_img) {
+        etape = 0;
+    }
+})
