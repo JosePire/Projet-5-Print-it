@@ -33,3 +33,8 @@ const dot = document.createElement('span')
 dot.setAttribute('class', 'dot')
 dots.appendChild(dot)
 
+let slide = [1, 1, 2, 3, 5, 8, 13];
+for (var i = 0; i < slides.length; i++) {
+    console.log(slides[i]);
+}
+
