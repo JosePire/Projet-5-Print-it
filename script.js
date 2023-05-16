@@ -42,24 +42,13 @@ for (let i = 0; i < nbSlides; i++) {
 //on recup tous les dots
 const dots = document.getElementsByClassName('dot');
 //on recup le p et span du banner
-const bannerP = document.getElementById('banner p');
-const bannerSpan = document.getElementById("banner span");
+const bannerP = document.getElementById('banner-p');
+const bannerSpan = document.getElementById("banner-span");
 
-
-
-// Ajout des événements de clic fleche gauche
-arrowLeft.addEventListener("click", function () {
-
-    //on supprime la class du dot selectionné précédent
-    dots[currentSlide].classList.remove('dot_selected');
-
-    //on met a jour le slide en cours
-    if (currentSlide == 0) {
-        currentSlide = slides.length - 1;
-    } else {
-        currentSlide--;
-    }
-
+/**
+ * Methode pour mettre à jour le slide courant
+ */
+const updateSlide = () => {
     //on ajoute la class du dot selectionné
     dots[currentSlide].classList.add('dot_selected');
 
@@ -74,6 +63,22 @@ arrowLeft.addEventListener("click", function () {
     //on peut maintenant associer le contenu du p et span du div temporaire aux notres
     bannerP.innerHTML = divTemp.querySelector('p').textContent;
     bannerSpan.innerHTML = divTemp.querySelector('span').textContent;
+}
+
+// Ajout des événements de clic fleche gauche
+arrowLeft.addEventListener("click", function () {
+
+    //on supprime la class du dot selectionné précédent
+    dots[currentSlide].classList.remove('dot_selected');
+
+    //on met a jour le slide en cours
+    if (currentSlide == 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide--;
+    }
+
+    updateSlide()
 
 });
 
@@ -90,21 +95,7 @@ arrowRight.addEventListener("click", function () {
         currentSlide++;
     }
 
-    //on ajoute la class du dot selectionné
-    dots[currentSlide].classList.add('dot_selected');
-
-    //on modifie la source de l'image
-    document.getElementById('banner-img').src = "assets/IMAGES/Diaporama/" + slides[currentSlide].image;
-
-
-
-    //on créer un div temporaire qui sera égale au tagLine du tableau selon le slide en cours
-    const divTemp = document.createElement('div');
-    divTemp.innerHTML = slides[currentSlide].tagLine;
-
-    //on peut maintenant associer le contenu du p et span du div temporaire aux notres
-    bannerP.innerHTML = divTemp.querySelector('p').textContent;
-    bannerSpan.innerHTML = divTemp.querySelector('span').textContent;
+    updateSlide()
 });
 
 
